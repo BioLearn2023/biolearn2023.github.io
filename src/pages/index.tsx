@@ -62,7 +62,7 @@ export default function Home() {
                 pill
                 href='https://github.com/BioLearn2023/BioLearn'
               >
-                <p>Începe acum</p>
+                <p>Cod sursă</p>
               </Button>
               <Button gradientDuoTone="tealToLime" outline pill onClick={handleClickScroll}>
                 <p>Features</p>
