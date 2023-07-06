@@ -181,7 +181,6 @@ const Test3 = () => {
       'sensibile la culorile roșu și verde',
     ]),
   ])
-  console.log(intrebari)
   const [shouldRender, setRender] = useState(false)
   const tempAns = new Array(intrebari.length).fill(0)
   const [ansArray, setAnsarray] = useState(new Array(intrebari.length).fill(0))
@@ -219,7 +218,6 @@ const Test3 = () => {
     document.getElementById(currAns.toString())?.classList.remove('outline')
     if (counter >= intrebari.length - 2) {
       setWord('Finalizează testul')
-      console.log(usedSet)
     }
     if (counter == intrebari.length - 1) {
       setAnsarray(tempAns)

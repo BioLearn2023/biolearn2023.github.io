@@ -213,7 +213,6 @@ const Test9 = () => {
     document.getElementById(currAns.toString())?.classList.remove('outline')
     if (counter >= intrebari.length - 2) {
       setWord('Finalizează testul')
-      console.log(usedSet)
     }
     if (counter == intrebari.length - 1) {
       setAnsarray(tempAns)
