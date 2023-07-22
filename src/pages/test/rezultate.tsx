@@ -440,31 +440,29 @@ const Results = () => {
       <>
         <h1 className="mt-20 text-center text-4xl font-extrabold">Rezultate</h1>
         <div className="-z-50 ml-[50%] mt-20  grid w-auto translate-x-[-50%] grid-cols-3 gap-4">
-          {' '}
-          {renderWrongCard()}{' '}
-          <div className="grid-rows-auto grid">
-            {' '}
-            {renderCorWroCounter()}{' '}
-            <Button
-              className="mx-auto mt-48 rounded-xl border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 text-black"
-              onClick={() => {
-                void router.push('/test/cuprins')
-              }}
-            >
-              {' '}
-              Teste <ClipboardDocumentListIcon className="ml-1 h-6 w-6" />{' '}
-            </Button>{' '}
-            <Button
-              className="z-50 mx-auto -mt-8 flex justify-center rounded-xl border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 text-black"
-              onClick={() => {
-                void router.push('/')
-              }}
-            >
-              {' '}
-              Acasa <HomeIcon className="ml-1 h-6 w-6" />{' '}
-            </Button>{' '}
-          </div>{' '}
-          {renderCorrectCard()}{' '}
+          {renderWrongCard()}
+          <div className="grid grid-rows-2">
+            <div className="row-end-1">{renderCorWroCounter()}</div>
+            <div className="row-start-2">
+              <Button
+                className="mx-auto mb-2  rounded-xl border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 text-black"
+                onClick={() => {
+                  console.log('clicked')
+                }}
+              >
+                Teste <ClipboardDocumentListIcon className="ml-1 h-6 w-6" />
+              </Button>
+              <Button
+                className=" z-50 mx-auto flex justify-center rounded-xl border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 text-black"
+                onClick={() => {
+                  void router.push('/')
+                }}
+              >
+                Acasa <HomeIcon className="ml-1 h-6 w-6" />
+              </Button>
+            </div>
+          </div>
+          {renderCorrectCard()}
         </div>
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
