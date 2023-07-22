@@ -212,12 +212,17 @@ const Test4 = () => {
         document.getElementById(i.toString())?.classList.remove('outline')
     }
   }
+
+  const preSubmit = () => {
+
+    if(currAns == -1) {alert("Nu ai selectat niciun raspuns!")}
+    else
+    submit()}
   const submit = () => {
     intrebari[counter]!.input = currAns
     if (currAns === intrebari[counter]?.raspuns) {
       tempAns[counter] = 1
     }
-    if(currAns == -1) alert("Nu ai selectat niciun raspuns!")
     setUsedSet(1)
     setCounter((count) => count + 1)
     document.getElementById(currAns.toString())?.classList.remove('outline')
@@ -272,7 +277,7 @@ const Test4 = () => {
                 {intrebari[counter]?.raspunsuri[3]}
               </Button>
             </Card>
-            <Button className="mx-auto w-32" gradientDuoTone="tealToLime" onClick={() => submit()}>
+            <Button className="mx-auto w-32" gradientDuoTone="tealToLime" onClick={() => preSubmit()}>
               {currWord} {''}<ArrowSmallRightIcon className=" ml-2 w-4"/>
             </Button>
           </Card>

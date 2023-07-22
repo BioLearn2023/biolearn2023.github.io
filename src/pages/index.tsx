@@ -65,7 +65,7 @@ export default function Home() {
                 <p>Cod sursă</p>
               </Button>
               <Button gradientDuoTone="tealToLime" outline pill onClick={handleClickScroll}>
-                <p>Features</p>
+                <p>Caracteristici</p>
               </Button>
             </div>
           </div>

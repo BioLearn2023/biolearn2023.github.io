@@ -22,7 +22,10 @@ import { API_10 } from './10'
 import { Button, Card } from 'flowbite-react'
 import { useRouter } from 'next/router'
 import { arrowParens } from 'prettier.config.cjs'
-import { ClipboardDocumentListIcon, HomeIcon } from '@heroicons/react/24/outline'
+import {
+  ClipboardDocumentListIcon,
+  HomeIcon,
+} from '@heroicons/react/24/outline'
 
 const Results = () => {
   const intrebari1 = API_1.getQuestions()
@@ -331,41 +334,40 @@ const Results = () => {
       <>
         {
           <div className="display: block">
-          <div className="text-2xl font-bold text-center text-green-900">
-            Raspunsuri gresite
-          </div>
-          <Card className="h-max max-w-md max-h-[50vh] overflow-y-scroll border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300">
-
-            <ul>
-              {newarr.map((index: any) => (
-                <>
-                  <li>
-                    {index}
-                    {'. '}
-                    {intrebari[index - 1]?.intrebare}
-                  </li>
-                  <br />
-                  <li className="text-green-500">
-                    {
-                      intrebari[index - 1]?.raspunsuri[
-                        intrebari[index - 1]!.raspuns - 1
-                      ]
-                    }{' '}
-                    ✓
-                  </li>
-                  <li className="text-red-500">
-                    {' '}
-                    {
-                      intrebari[index - 1]?.raspunsuri[
-                        intrebari[index - 1]!.input - 1
-                      ]
-                    }{' '}
-                    X{DividerBar(index, newarr)}
-                  </li>
-                </>
-              ))}
-            </ul>
-          </Card>
+            <div className="text-center text-2xl font-bold text-green-900">
+              Raspunsuri gresite
+            </div>
+            <Card className="h-max max-h-[50vh] max-w-md overflow-y-scroll border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300">
+              <ul>
+                {newarr.map((index: any) => (
+                  <>
+                    <li>
+                      {index}
+                      {'. '}
+                      {intrebari[index - 1]?.intrebare}
+                    </li>
+                    <br />
+                    <li className="text-green-500">
+                      {
+                        intrebari[index - 1]?.raspunsuri[
+                          intrebari[index - 1]!.raspuns - 1
+                        ]
+                      }{' '}
+                      ✓
+                    </li>
+                    <li className="text-red-500">
+                      {' '}
+                      {
+                        intrebari[index - 1]?.raspunsuri[
+                          intrebari[index - 1]!.input - 1
+                        ]
+                      }{' '}
+                      X{DividerBar(index, newarr)}
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </Card>
           </div>
         }
       </>
@@ -376,32 +378,31 @@ const Results = () => {
       <>
         {
           <div className="display: block">
-            <div className="text-2xl font-bold text-center text-green-900">
+            <div className="text-center text-2xl font-bold text-green-900">
               Raspunsuri corecte
             </div>
-          <Card className="h-max max-w-md max-h-[50vh] overflow-y-scroll border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 object-right">
-            <ul>
-              {corrArr.map((index: any) => (
-                <>
-                  <li>
-                    {index}
-                    {'. '}
-                    {intrebari[index - 1]?.intrebare}
-                  </li>
-                  <br />
-                  <li className="text-green-500">
-                    {
-                      intrebari[index - 1]?.raspunsuri[
-                        intrebari[index - 1]!.raspuns - 1
-                      ]
-                    }{' '}
-                    ✓
-                    {DividerBar(index, corrArr)}
-                  </li>
-                </>
-              ))}
-            </ul>
-          </Card>
+            <Card className="h-max max-h-[50vh] max-w-md overflow-y-scroll border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 object-right">
+              <ul>
+                {corrArr.map((index: any) => (
+                  <>
+                    <li>
+                      {index}
+                      {'. '}
+                      {intrebari[index - 1]?.intrebare}
+                    </li>
+                    <br />
+                    <li className="text-green-500">
+                      {
+                        intrebari[index - 1]?.raspunsuri[
+                          intrebari[index - 1]!.raspuns - 1
+                        ]
+                      }{' '}
+                      ✓{DividerBar(index, corrArr)}
+                    </li>
+                  </>
+                ))}
+              </ul>
+            </Card>
           </div>
         }
       </>
@@ -409,30 +410,26 @@ const Results = () => {
   }
   const [currWordG, setCurrWordG] = React.useState('Raspunsuri')
   const [currWordC, setCurrWordC] = React.useState('Raspunsuri')
-  function changeWord(){
-    if(correctAnswers == 1) setCurrWordC('1 Raspuns Corect')
-    else if(correctAnswers == 0) setCurrWordC('Niciun Raspuns Corect')
-    else setCurrWordC(correctAnswers + ' Raspunsuri Corecte') 
-    if(wrongAnswers == 1) setCurrWordG('1 Raspuns Gresit')
-    else if(wrongAnswers == 0) setCurrWordG('Niciun Raspuns Gresit')
+  function changeWord() {
+    if (correctAnswers == 1) setCurrWordC('1 Raspuns Corect')
+    else if (correctAnswers == 0) setCurrWordC('Niciun Raspuns Corect')
+    else setCurrWordC(correctAnswers + ' Raspunsuri Corecte')
+    if (wrongAnswers == 1) setCurrWordG('1 Raspuns Gresit')
+    else if (wrongAnswers == 0) setCurrWordG('Niciun Raspuns Gresit')
     else setCurrWordG(wrongAnswers + ' Raspunsuri Gresite')
   }
   useEffect(() => {
     changeWord()
   }, [correctAnswers, wrongAnswers])
-  function renderCorWroCounter(){
+  function renderCorWroCounter() {
     //create me a small card with centered text that shows the number of correct and wrong answers
     //correct in green and wrong in red
-    return(
+    return (
       <>
-        <Card className="h-max max-w-md max-h-[50vh] mt-8  border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 object-right">
+        <Card className="mt-8 h-max max-h-[50vh] max-w-md  border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 object-right">
           <ul>
-            <li className="text-green-500">
-              {currWordC}
-            </li>
-            <li className="text-red-500">
-              {currWordG}
-            </li>
+            <li className="text-green-500">{currWordC}</li>
+            <li className="text-red-500">{currWordG}</li>
           </ul>
         </Card>
       </>
@@ -441,55 +438,69 @@ const Results = () => {
   if (unusedSet == 0) {
     return (
       <>
-        <h1 className='text-center mt-20 text-4xl font-extrabold'>Rezultate</h1>
-        <div className=" mt-20 w-auto  ml-[50%] translate-x-[-50%] grid grid-cols-3 gap-4">
-          {renderWrongCard()}
-          {renderCorWroCounter()} 
-          {renderCorrectCard()}
+        <h1 className="mt-20 text-center text-4xl font-extrabold">Rezultate</h1>
+        <div className="-z-50 ml-[50%] mt-20  grid w-auto translate-x-[-50%] grid-cols-3 gap-4">
+          {' '}
+          {renderWrongCard()}{' '}
+          <div className="grid-rows-auto grid">
+            {' '}
+            {renderCorWroCounter()}{' '}
+            <Button
+              className="mx-auto mt-48 rounded-xl border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 text-black"
+              onClick={() => {
+                void router.push('/test/cuprins')
+              }}
+            >
+              {' '}
+              Teste <ClipboardDocumentListIcon className="ml-1 h-6 w-6" />{' '}
+            </Button>{' '}
+            <Button
+              className="z-50 mx-auto -mt-8 flex justify-center rounded-xl border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 text-black"
+              onClick={() => {
+                void router.push('/')
+              }}
+            >
+              {' '}
+              Acasa <HomeIcon className="ml-1 h-6 w-6" />{' '}
+            </Button>{' '}
+          </div>{' '}
+          {renderCorrectCard()}{' '}
         </div>
-              <Button
-                className=" rounded-xl border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 flex justify-center mx-auto -mt-48 text-black"
-                onClick={() => {
-                  void router.push('/test/cuprins')
-                }}
-              >
-                Teste <ClipboardDocumentListIcon className='w-6 h-6 ml-1'/>
-              </Button>
-              <Button
-                className=" rounded-xl border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 flex justify-center mx-auto mt-8 text-black"
-                onClick={() => {
-                  void router.push('/')
-                }}
-              >
-                Acasa  <HomeIcon className='w-6 h-6 ml-1'/>
-              </Button>
-              <div
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        aria-hidden="true"
-    >
         <div
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          aria-hidden="true"
+        >
+          <div
             className="relative left-[calc(50%-20rem)] aspect-[1200/1100] w-[27.125rem] -translate-x-1 rotate-[30deg] bg-gradient-to-tr from-lime-500 to-green-500 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             style={{
-                clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-            }} />
-        </div><div
-            className="absolute inset-x-0 -top-16 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-100"
-            aria-hidden="true"
-    >
-            <div
-                className="relative left-[calc(50%-11rem)] aspect-[1100/500] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-lime-300 to-lime-900 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                style={{
-                    clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-                }} />
-        </div><div
-            className="absolute inset-x-0 -top-12 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-            aria-hidden="true"
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+          />
+        </div>
+        <div
+          className="sm:-top-100 absolute inset-x-0 -top-16 -z-10 transform-gpu overflow-hidden blur-3xl"
+          aria-hidden="true"
         >
-            <div
-                className="relative right-[calc(0%+11rem)] aspect-[1100/600] w-[36.125rem] -translate-x-1/2  rotate-[30deg] bg-gradient-to-tr from-lime-600 to-green-900 opacity-30 sm:left-[calc(50%+15rem)] sm:w-[72.1875rem]"
-                style={{
-                    clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-                }} />
+          <div
+            className="relative left-[calc(50%-11rem)] aspect-[1100/500] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-lime-300 to-lime-900 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            style={{
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+          />
+        </div>
+        <div
+          className="absolute inset-x-0 -top-12 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          aria-hidden="true"
+        >
+          <div
+            className="relative right-[calc(0%+11rem)] aspect-[1100/600] w-[36.125rem] -translate-x-1/2  rotate-[30deg] bg-gradient-to-tr from-lime-600 to-green-900 opacity-30 sm:left-[calc(50%+15rem)] sm:w-[72.1875rem]"
+            style={{
+              clipPath:
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+            }}
+          />
         </div>
       </>
     )
@@ -504,7 +515,7 @@ const Results = () => {
             <div className="mx-auto mt-24 h-12 w-1/2 text-center">
               Trebuie să parcurgeți un test înainte de a vedea rezultatele.
             </div>
-            <br/>
+            <br />
             <div className="mx-auto mb-12 h-12 w-3/4 text-center">
               Click mai jos pentru a ajunge la cuprinsul de teste sau pe pagina
               principală.
@@ -527,33 +538,41 @@ const Results = () => {
                 Acasa
               </Button>
               <div
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        aria-hidden="true"
-    >
-        <div
-            className="relative left-[calc(50%-20rem)] aspect-[16/9] w-[27.125rem] -translate-x-1 rotate-[30deg] bg-gradient-to-tr from-yellow-500 to-green-500 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-            style={{
-                clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-            }} />
-        </div><div
-            className="absolute inset-x-0 -top-70 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-100"
-            aria-hidden="true"
-    >
-            <div
-                className="relative left-[calc(50%-11rem)] aspect-[16/9] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-emerald-300 to-yellow-900 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                style={{
-                    clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-                }} />
-        </div><div
-            className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-            aria-hidden="true"
-        >
-            <div
-                className="relative right-[calc(0%+11rem)] aspect-[16/9] w-[36.125rem] -translate-x-1/2  rotate-[30deg] bg-gradient-to-tr from-lime-600 to-green-900 opacity-30 sm:left-[calc(50%+15rem)] sm:w-[72.1875rem]"
-                style={{
-                    clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
-                }} />
-        </div>
+                className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                aria-hidden="true"
+              >
+                <div
+                  className="relative left-[calc(50%-20rem)] aspect-[16/9] w-[27.125rem] -translate-x-1 rotate-[30deg] bg-gradient-to-tr from-yellow-500 to-green-500 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                  style={{
+                    clipPath:
+                      'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                  }}
+                />
+              </div>
+              <div
+                className="-top-70 sm:-top-100 absolute inset-x-0 -z-10 transform-gpu overflow-hidden blur-3xl"
+                aria-hidden="true"
+              >
+                <div
+                  className="relative left-[calc(50%-11rem)] aspect-[16/9] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-emerald-300 to-yellow-900 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                  style={{
+                    clipPath:
+                      'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                  }}
+                />
+              </div>
+              <div
+                className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                aria-hidden="true"
+              >
+                <div
+                  className="relative right-[calc(0%+11rem)] aspect-[16/9] w-[36.125rem] -translate-x-1/2  rotate-[30deg] bg-gradient-to-tr from-lime-600 to-green-900 opacity-30 sm:left-[calc(50%+15rem)] sm:w-[72.1875rem]"
+                  style={{
+                    clipPath:
+                      'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>

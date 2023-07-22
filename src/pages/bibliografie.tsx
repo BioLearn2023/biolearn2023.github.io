@@ -86,7 +86,7 @@ import Link from "next/link";
                         </span>
                      </div>
                     <div className="flex justify-center">
-                        <span onClick={()=> void router.push('/10/relatie/limba')} className="inline-flex items-center px-4 py-2 mt-32 text-sm font-medium text-lime-500 bg-white border border-lime-500 rounded-lg hover:bg-lime-500 hover:text-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <span onClick={()=> void router.push('/')} className="inline-flex items-center px-4 py-2 mt-32 text-sm font-medium text-lime-500 bg-white border border-lime-500 rounded-lg hover:bg-lime-500 hover:text-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             Acasă
                         </span>
                     </div>
