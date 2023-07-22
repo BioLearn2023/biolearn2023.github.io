@@ -229,7 +229,7 @@ const Test7 = () => {
     if (shouldRender) {
       return (
         <>
-          <Card className="max-w-sm mx-auto my-auto flex h-1/2 rounded-lg relative grid mt-28 border-lime-300 bg-transparent">
+          <Card className="relative mx-auto my-auto mt-28 flex grid h-1/2 max-w-sm rounded-lg border-lime-300 bg-transparent">
             <h5 className="text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               {intrebari[counter]?.intrebare}
             </h5>
