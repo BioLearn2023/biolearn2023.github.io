@@ -447,7 +447,7 @@ const Results = () => {
               <Button
                 className="mx-auto mb-2  rounded-xl border-lime-500 bg-gradient-to-tr from-lime-200 to-green-300 text-black"
                 onClick={() => {
-                  console.log('clicked')
+                  void router.push('/test/cuprins')
                 }}
               >
                 Teste <ClipboardDocumentListIcon className="ml-1 h-6 w-6" />
